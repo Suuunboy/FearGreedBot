@@ -15,7 +15,7 @@ import re
 
 
 def scrap():
-    url = 'https://cryptocurrencytracker.info/en/fear-and-greed-index'
+    url = 'https://coinmarketcap.com/'
 
     op = Options()
 
@@ -30,5 +30,7 @@ def scrap():
     driver = webdriver.Chrome(options=op)
     driver.get(url)
 
-    result = driver.find_element(By.XPATH, '//*[@id="page-wrapper"]/div[2]/div/div/div[2]/div/div/div/div[1]/div[2]/div[2]').text
+    result = driver.find_element(By.XPATH, '//*[@id="__next"]/div[2]/div[1]/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/span[1]').text
+    driver.quit()
     print(result)
+    return result
