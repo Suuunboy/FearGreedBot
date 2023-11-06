@@ -18,11 +18,11 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = commands.Bot(command_prefix='!', intents=intents)
 
-# CN_CHANNEL = 1141286627117899916
-# LOG_CHANNEL = 1161018317025329204
+CN_CHANNEL = 1141286627117899916
+LOG_CHANNEL = 1161018317025329204
 
-CN_CHANNEL = 1152910423134306304
-LOG_CHANNEL = 1152910423134306304
+# CN_CHANNEL = 1152910423134306304
+# LOG_CHANNEL = 1152910423134306304
 
 
 async def run_blocking(blocking_func: typing.Callable, *args, **kwargs) -> typing.Any:
@@ -79,7 +79,7 @@ async def stopFG(ctx):
 async def infFG(ctx):
     if ctx.channel.id != CN_CHANNEL:
         return
-    await ctx.send('!start - start bot, users will be notified abot fear or greed')
-    await ctx.send('!stop - stop bot')
+    await ctx.send('!startFG - start bot, users will be notified abot fear or greed')
+    await ctx.send('!stopFG - stop bot')
 
 client.run('MTE2NjMxMDQyNDQ4NTA0NDIyNA.Gb5WL2.3SJY12CianRVpjYf0w0gODmStp1Lv7Zj6mPj6k')
