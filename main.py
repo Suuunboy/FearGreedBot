@@ -37,7 +37,7 @@ async def on_ready():
     print('------------------')
 
 
-@tasks.loop(minutes=20)
+@tasks.loop(minutes=30)
 async def send_news():
     print('started')
     res = int(await run_blocking(scrap))
