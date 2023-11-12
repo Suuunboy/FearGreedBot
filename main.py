@@ -18,7 +18,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = commands.Bot(command_prefix='!', intents=intents)
 
-CN_CHANNEL = 1141286627117899916
+FG_CHANNEL = 1172648950973616258
 LOG_CHANNEL = 1161018317025329204
 
 # CN_CHANNEL = 1152910423134306304
@@ -41,7 +41,7 @@ async def on_ready():
 async def send_news():
     print('started')
     res = int(await run_blocking(scrap))
-    chanel = client.get_channel(CN_CHANNEL)
+    chanel = client.get_channel(FG_CHANNEL)
     if res >= 70:
         emb = discord.Embed(title='Warning: greed on market!', colour=0x00ff1e)
         emb.add_field(name="Index:", value=res, inline=True)
@@ -56,7 +56,7 @@ async def send_news():
 @commands.has_permissions(administrator=True)
 @client.command()
 async def startFG(ctx):
-    if ctx.channel.id != CN_CHANNEL:
+    if ctx.channel.id != FG_CHANNEL:
         return
     chanel = client.get_channel(LOG_CHANNEL)
     await chanel.send('Started!')
@@ -66,7 +66,7 @@ async def startFG(ctx):
 @commands.has_permissions(administrator=True)
 @client.command()
 async def stopFG(ctx):
-    if ctx.channel.id != CN_CHANNEL:
+    if ctx.channel.id != FG_CHANNEL:
         return
     print('Stopped')
     chanel = client.get_channel(LOG_CHANNEL)
@@ -77,7 +77,7 @@ async def stopFG(ctx):
 @commands.has_permissions(administrator=True)
 @client.command()
 async def infFG(ctx):
-    if ctx.channel.id != CN_CHANNEL:
+    if ctx.channel.id != FG_CHANNEL:
         return
     await ctx.send('!startFG - start bot, users will be notified abot fear or greed')
     await ctx.send('!stopFG - stop bot')
