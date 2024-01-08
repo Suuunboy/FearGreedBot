@@ -29,8 +29,12 @@ def scrap():
 
     driver = webdriver.Chrome(options=op)
     driver.get(url)
-
-    result = driver.find_element(By.XPATH, '//*[@id="__next"]/div[2]/div[1]/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/span[1]').text
+    result = 50
+    try:
+        result = driver.find_element(By.XPATH, '//*[@id="__next"]/div[2]/div[1]/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/span[1]').text
+    except NoSuchElementException:
+        print('Error occurred:')
+        print(NoSuchElementException)
     driver.quit()
     print(result)
     return result
