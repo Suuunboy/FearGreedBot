@@ -1,17 +1,7 @@
-import asyncio
-import functools
-import time
-import typing
-
 from selenium import webdriver
 from selenium.common import NoSuchElementException
-from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support import expected_conditions as EC
-import re
 
 
 def scrap():

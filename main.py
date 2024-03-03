@@ -1,24 +1,13 @@
-import re
 import typing
 import discord
 from discord.ext import commands
-import asyncio
 from feargreed_scraper import scrap
 import functools
-from datetime import datetime
-from datetime import timedelta
-from pytz import timezone
-import asyncio
 from discord.ext import tasks
-
-fmt = "%H:%M"
-fmt2 = "%m-%d"
 
 intents = discord.Intents.default()
 intents.message_content = True
 client = commands.Bot(command_prefix='!', intents=intents)
-
-LOG_CHANNEL = 1161018317025329204
 
 FG_CHANNELS = []
 
@@ -103,4 +92,7 @@ async def infFG(ctx):
     await ctx.send('!startFG - start bot, users will be notified abot fear or greed')
     await ctx.send('!stopFG - stop bot')
 
-client.run('MTE2NjMxMDQyNDQ4NTA0NDIyNA.Gb5WL2.3SJY12CianRVpjYf0w0gODmStp1Lv7Zj6mPj6k')
+
+with open('token', 'r') as file:
+    token = file.read()
+client.run(token)
